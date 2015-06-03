@@ -1,6 +1,6 @@
-package com.appchemy.cnergy.processing.request.cnergy;
+package com.appchemy.cnergy.processor.request.cnergy;
 
-import com.appchemy.cnergy.processing.request.UrlEncodedRequest;
+import com.appchemy.cnergy.processor.request.UrlEncodedRequest;
 
 public class CnergyURLRequest extends UrlEncodedRequest
 {

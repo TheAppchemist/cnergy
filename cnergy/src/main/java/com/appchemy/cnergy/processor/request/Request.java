@@ -1,4 +1,4 @@
-package com.appchemy.cnergy.processing.request;
+package com.appchemy.cnergy.processor.request;
 
 import java.util.Hashtable;
 

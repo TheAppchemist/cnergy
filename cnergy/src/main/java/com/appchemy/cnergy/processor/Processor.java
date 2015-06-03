@@ -1,17 +1,16 @@
-package com.appchemy.cnergy.processing;
+package com.appchemy.cnergy.processor;
 
 import android.util.Log;
 
-import com.appchemy.cnergy.model.*;
 import com.appchemy.cnergy.model.Error;
 import com.appchemy.cnergy.net.HttpInterface;
 import com.appchemy.cnergy.net.HttpSettings;
 import com.appchemy.cnergy.net.OnHttpRequestListener;
-import com.appchemy.cnergy.processing.request.Request;
+import com.appchemy.cnergy.processor.request.Request;
 
 import org.json.JSONObject;
 
-public class Processor implements OnHttpRequestListener
+public abstract class Processor implements OnHttpRequestListener
 {
 	private OnProcessListener listener = null;
 	private HttpInterface http;
@@ -27,6 +26,8 @@ public class Processor implements OnHttpRequestListener
 	{
 		return state;
 	}
+
+	protected abstract boolean isValidResponse(JSONObject json);
 	
 	public Processor()
 	{
@@ -67,8 +68,6 @@ public class Processor implements OnHttpRequestListener
 	public void onRequestSuccess(byte[] data, int code) 
 	{
 		state = STATE_FAILED;
-        //Log.i("data", new String(data));
-
 
 		try
 		{
@@ -76,7 +75,18 @@ public class Processor implements OnHttpRequestListener
 			
 			if (listener != null)
 			{
-				if (json.has("error"))
+				if (isValidResponse(json))
+				{
+					Object object = processResponse(json, request);
+					state = STATE_SUCCESS;
+					listener.onProcessSuccess(object, request);
+				}
+				else
+				{
+					listener.onProcessFailed(new Error(json.getJSONObject("error")), request);
+				}
+
+				/*if (json.has("error"))
 				{
                     listener.onProcessFailed(new Error(json.getJSONObject("error")), request);
 				}
@@ -85,7 +95,7 @@ public class Processor implements OnHttpRequestListener
                     Object object = processResponse(json, request);
 					state = STATE_SUCCESS;
                     listener.onProcessSuccess(object, request);
-				}
+				}*/
 			}
 		}
 		catch (Exception e)
@@ -109,7 +119,7 @@ public class Processor implements OnHttpRequestListener
 
 	public void onRequestError(byte[] data, int code) 
 	{
-		
+		// TODO stub
 	}
 
 	public void onNetworkError(Exception e) 

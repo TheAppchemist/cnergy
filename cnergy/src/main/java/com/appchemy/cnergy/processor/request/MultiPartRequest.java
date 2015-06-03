@@ -1,6 +1,6 @@
-package com.appchemy.cnergy.processing.request;
+package com.appchemy.cnergy.processor.request;
 
-import com.appchemy.cnergy.processing.request.cnergy.multipart.Multipart;
+import com.appchemy.cnergy.processor.request.cnergy.multipart.Multipart;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;

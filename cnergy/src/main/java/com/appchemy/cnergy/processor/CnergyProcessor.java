@@ -1,14 +1,14 @@
-package com.appchemy.cnergy.processing;
+package com.appchemy.cnergy.processor;
 
-import com.appchemy.cnergy.processing.request.Request;
-import com.appchemy.cnergy.processing.request.cnergy.CnergyJSONRequest;
-import com.appchemy.cnergy.processing.request.cnergy.CnergyMultipartRequest;
-import com.appchemy.cnergy.processing.request.cnergy.CnergyURLRequest;
+import com.appchemy.cnergy.processor.request.Request;
+import com.appchemy.cnergy.processor.request.cnergy.CnergyJSONRequest;
+import com.appchemy.cnergy.processor.request.cnergy.CnergyMultipartRequest;
+import com.appchemy.cnergy.processor.request.cnergy.CnergyURLRequest;
 
 /**
  * Created by melvin on 2/21/15.
  */
-public class CnergyProcessor extends Processor
+public abstract class CnergyProcessor extends Processor
 {
     private String server;
 
@@ -32,7 +32,6 @@ public class CnergyProcessor extends Processor
         {
             function_name = ((CnergyMultipartRequest)request).functionName();
         }
-
 
         request(server + function_name, request);
     }

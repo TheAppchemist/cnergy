@@ -1,7 +1,8 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
 
-version "0.8.1"
+version "0.8.3"
 
 android {
     compileSdkVersion 21
@@ -9,7 +10,6 @@ android {
     resourcePrefix "cnergy__"
 
     defaultConfig {
-        applicationId "com.appchemy.cnergy"
         minSdkVersion 7
         targetSdkVersion 21
         versionCode 1

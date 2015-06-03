@@ -1,6 +1,4 @@
-package com.appchemy.cnergy.processing.request;
-
-import android.content.SharedPreferences;
+package com.appchemy.cnergy.processor.request;
 
 import org.json.JSONObject;
 

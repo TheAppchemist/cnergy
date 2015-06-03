@@ -1,9 +1,7 @@
-package com.appchemy.cnergy.processing;
+package com.appchemy.cnergy.processor;
 
 import com.appchemy.cnergy.model.Error;
-import com.appchemy.cnergy.processing.request.Request;
-
-import java.util.ArrayList;
+import com.appchemy.cnergy.processor.request.Request;
 
 public interface OnProcessListener 
 {

@@ -1,6 +1,6 @@
-package com.appchemy.cnergy.processing.request.cnergy;
+package com.appchemy.cnergy.processor.request.cnergy;
 
-import com.appchemy.cnergy.processing.request.MultiPartRequest;
+import com.appchemy.cnergy.processor.request.MultiPartRequest;
 
 public class CnergyMultipartRequest extends MultiPartRequest
 {

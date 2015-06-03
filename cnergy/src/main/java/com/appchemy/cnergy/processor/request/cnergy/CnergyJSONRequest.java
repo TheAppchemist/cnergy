@@ -1,6 +1,6 @@
-package com.appchemy.cnergy.processing.request.cnergy;
+package com.appchemy.cnergy.processor.request.cnergy;
 
-import com.appchemy.cnergy.processing.request.JSONRequest;
+import com.appchemy.cnergy.processor.request.JSONRequest;
 
 import org.json.JSONObject;
 

@@ -1,4 +1,4 @@
-package com.appchemy.cnergy.processing.request.cnergy.multipart;
+package com.appchemy.cnergy.processor.request.cnergy.multipart;
 
 import java.util.Enumeration;
 import java.util.Hashtable;
